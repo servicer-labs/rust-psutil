@@ -44,6 +44,31 @@ impl MemoryInfo {
 	pub fn vms(&self) -> Bytes {
 		self.vms
 	}
+
+	#[cfg(target_os = "linux")]
+	pub fn shared(&self) -> Bytes {
+		self.shared
+	}
+
+	#[cfg(target_os = "linux")]
+	pub fn text(&self) -> Bytes {
+		self.text
+	}
+
+	#[cfg(target_os = "linux")]
+	pub fn data(&self) -> Bytes {
+		self.data
+	}
+
+	#[cfg(target_os = "macos")]
+	pub fn page_faults(&self) -> Count {
+		self.page_faults
+	}
+
+	#[cfg(target_os = "macos")]
+	pub fn pageins(&self) -> Count {
+		self.pageins
+	}
 }
 
 #[cfg(target_os = "linux")]
